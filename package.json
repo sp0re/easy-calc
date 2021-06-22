@@ -2,7 +2,7 @@
   "name": "easy-calc",
   "version": "0.0.1",
   "description": "一个使用简单的、解决JavaScript基本运算与四舍五入时精度丢失问题的方法",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,5 +25,9 @@
     "divide"
   ],
   "author": "sp0re",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.7.2"
+  }
 }
