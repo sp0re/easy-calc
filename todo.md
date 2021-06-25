@@ -11,3 +11,7 @@ TS
 webpack，babel编译
 加减乘除括号，四舍五入，公式变量替换
 GitHub
+
+
+"dts-bundle": "^0.7.3",
+    "dtsmake": "0.0.10",
