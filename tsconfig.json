@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./lib/",
     "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
+    "module": "commonjs",
+    "target": "es2015",
     "jsx": "react",
     "allowJs": true,
     "declaration": true,
-    "declarationDir": "./dist/",
-    "esModuleInterop": true
+    "declarationDir": "./lib/",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,    
   },
-  "exclude": [
-    "node_modules"
+  "include": [
+    "src/**/*.ts"
   ]
 }

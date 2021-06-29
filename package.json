@@ -2,10 +2,13 @@
   "name": "easy-calc",
   "version": "0.0.1",
   "description": "一个使用简单的、解决JavaScript基本运算与四舍五入时精度丢失问题的方法",
-  "main": "dist/main.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "watch": "tsc --watch",
+    "build": "npm run build-dist && npm run build-lib",
+    "build-lib": "rimraf lib && tsc && babel src --config-file babel.config.json --extensions .js,.jsx,.ts,.tsx --out-dir lib",
+    "build-dist": "webpack",
+    "rise": "npm link"
   },
   "repository": {
     "type": "git",
@@ -34,6 +37,8 @@
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
     "babel-loader": "^8.2.2",
+    "babel-preset-minify": "^0.5.1",
+    "rimraf": "^3.0.2",
     "ts-loader": "^8.1.0",
     "typescript": "^4.3.4",
     "webpack": "^4.46.0",

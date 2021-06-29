@@ -1,7 +1,8 @@
+const path = require('path');
 
 module.exports = {
-    mode: 'development',
-    // mode: 'production',
+    // mode: 'development',
+    mode: 'production',
     entry: './src/index.ts',
     output: {
         library: 'easyCalc',
@@ -16,34 +17,37 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: [
-                            ["@babel/env",
-                                {
-                                    "targets": {
-                                        "browsers": ["> 1%", "ie >= 11"]
-                                    },
-                                    "modules": false,
-                                    "useBuiltIns": 'usage',
-                                    "corejs": {
-                                        "version": "3.8",
-                                        "proposals": true
-                                    },
-                                    // "forceAllTransforms": true, 
-                                }
-                            ],
-                            "@babel/preset-typescript"
-                        ],
-                        plugins: [
-                            [
-                                "@babel/plugin-transform-runtime",
-                                {
-                                    // "helpers": false,
-                                    "regenerator": true,
-                                    "corejs": 3,
-                                }
-                            ]
-                        ]
+                        configFile: path.join(__dirname, 'babel.config.json')
                     }
+                    // options: {
+                    //     presets: [
+                    //         ["@babel/env",
+                    //             {
+                    //                 "targets": {
+                    //                     "browsers": ["> 1%", "ie >= 11"]
+                    //                 },
+                    //                 "modules": false,
+                    //                 "useBuiltIns": 'usage',
+                    //                 "corejs": {
+                    //                     "version": "3.8",
+                    //                     "proposals": true
+                    //                 },
+                    //                 // "forceAllTransforms": true, 
+                    //             }
+                    //         ],
+                    //         "@babel/preset-typescript"
+                    //     ],
+                    //     plugins: [
+                    //         [
+                    //             "@babel/plugin-transform-runtime",
+                    //             {
+                    //                 // "helpers": false,
+                    //                 "regenerator": true,
+                    //                 "corejs": 3,
+                    //             }
+                    //         ]
+                    //     ]
+                    // }
                 },
             },
             // {
