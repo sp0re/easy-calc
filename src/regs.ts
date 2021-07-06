@@ -11,6 +11,7 @@ const Regs: RegsType = {
     subadd: /\-\+/g,
     symbol: /(\+|\-){2,}/g,
     space: /\s+/g,
+    addSymbol: /^\+/,
 }
 
 export default Regs

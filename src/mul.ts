@@ -7,7 +7,6 @@ export interface mulFunc {
 }
 
 const mul: mulFunc = (equation: string) => {
-    console.log(1111)
     let equa = symbol(equation); //先做一次负负得正负正得负的运算
     if (equa.match(Regs.mul)) {
         return mul(

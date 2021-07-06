@@ -2,6 +2,7 @@ import Regs from './regs'
 import div from './div'
 import mul from './mul'
 import addAndSub from './add_sub'
+import Big from 'big.js';
 
 export interface equationConfig {
     toFixed?: number,
@@ -34,6 +35,18 @@ const calc: calcFunc = (equation: string, {toFixed, variable={}}: equationConfig
     equa = mul(equa)
     //从前到后把加减法运算算出来
     equa = addAndSub(equa)
+    //最后如果前面有+号就去掉
+    equa = equa.replace(Regs.addSymbol, '')
+    //tofixed
+    if(toFixed || toFixed === 0){
+        return (
+            (new Big(
+                Number(equa)
+            ))
+            .toFixed(toFixed)
+            .toString()
+        )
+    } 
 
     return equa
 }
