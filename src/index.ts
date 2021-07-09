@@ -61,15 +61,23 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
     //tofixed
     if (toFixed || toFixed === 0) {
         return (
-            (new Big(
-                Number(equa)
-            ))
-                .toFixed(toFixed)
-                .toString()
+            Big(
+                // Number(equa)
+                equa
+            )
+            .toFixed(toFixed)
+            // .toString()
         )
     }
 
-    return equa
+    // return equa
+    return String(
+        Big(
+            // Number(equa)
+            equa
+        )
+        .toNumber()
+    )
 }
 
 export default calc
