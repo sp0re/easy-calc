@@ -73,3 +73,4 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
 }
 
 export default calc
+export {calc}

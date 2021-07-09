@@ -1,7 +1,7 @@
 {
   "name": "easy-calc",
   "version": "0.0.1",
-  "description": "一个使用简单的、解决JavaScript基本运算与四舍五入时精度丢失问题的方法",
+  "description": "一个用法简单的、解决JavaScript基本运算与四舍五入时精度丢失问题的方法",
   "main": "lib/index.js",
   "scripts": {
     "watch": "rimraf lib && tsc --watch",
