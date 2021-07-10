@@ -14,12 +14,10 @@ const mul: mulFunc = (equation: string) => {
                 let _arr = match.split('*');
                 return (
                     Big(
-                        // Number(_arr[0])
                         _arr[0]
                     )
                     .times(
                         Big(
-                            // Number(_arr[1])
                             _arr[1]
                         )
                     )

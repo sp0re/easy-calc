@@ -17,7 +17,6 @@ const div: divFunc = (equation: string) => {
                         Big(1)
                         .div(
                             Big(
-                                // Number(_arr[1])
                                 _arr[1]
                             )
                         )

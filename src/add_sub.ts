@@ -25,10 +25,8 @@ const func: Func = (equation: string) => {
                 if (flag === 0) {
                     return (
                         Big(
-                            // Number(_arr[0])
                             _arr[0]
                         ).plus(
-                            // Number(_arr[1])
                             _arr[1]
                         )
                         .toPrecision()
@@ -37,10 +35,8 @@ const func: Func = (equation: string) => {
                 if (flag === 1) {
                     return (
                         Big(
-                            // Number(_arr[0])
                             _arr[0]
                         ).minus(
-                            // Number(_arr[1])
                             _arr[1]
                         )
                         .toPrecision()

@@ -7,7 +7,7 @@ import Big from 'big.js';
 export interface equationConfig {
     toFixed?: number,
     variable?: {
-        [variableName: string]: any
+        [variableName: string]: number | string
     }
 }
 
@@ -26,7 +26,7 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
     if (variable && Object.keys(variable).length > 0) {
         for (let key in variable) {
             let value = variable[key];
-            equa = equa.replace(new RegExp(key, 'g'), value)
+            equa = equa.replace(new RegExp(key, 'g'), String(value))
         }
     }
 
@@ -43,6 +43,7 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
         return equa
     }
 
+    //处理括号
     const loop: any = (equa: string) => {
         if(equa.match(Regs.brackets)){            
             return loop(
@@ -62,18 +63,14 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
     if (toFixed || toFixed === 0) {
         return (
             Big(
-                // Number(equa)
                 equa
             )
             .toFixed(toFixed)
-            // .toString()
         )
     }
 
-    // return equa
     return String(
         Big(
-            // Number(equa)
             equa
         )
         .toNumber()
