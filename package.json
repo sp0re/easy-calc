@@ -1,5 +1,5 @@
 {
-  "name": "easy-calc",
+  "name": "calc-easy",
   "version": "0.0.1",
   "description": "一个用法简单的、解决JavaScript基本运算与四舍五入时精度丢失问题的方法",
   "main": "lib/index.js",
@@ -12,8 +12,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "default"
+    "url": "https://github.com/sp0re/easy-calc"
   },
+  "homepage": "https://github.com/sp0re/easy-calc",
   "keywords": [
     "float",
     "arithmetic",
@@ -50,5 +51,9 @@
     "@types/big.js": "^6.1.1",
     "big.js": "^6.1.1",
     "core-js": "^3.15.2"
-  }
+  },
+  "files": [
+    "dist",
+    "lib"
+  ]
 }

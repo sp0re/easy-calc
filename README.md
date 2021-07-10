@@ -1,4 +1,4 @@
-# easy-calc
+# calc-easy
 **一个用法简单的、解决JavaScript基本运算与四舍五入时精度丢失问题的方法**
 
 
@@ -24,7 +24,7 @@
 不过，大多数场景里我只是需要加减乘除和四舍五入这些基本运算，用不到 [decimal.js](https://www.npmjs.com/package/decimal.js) 里那么多方法；算式比较长时， [decimal.js](https://www.npmjs.com/package/decimal.js) 需要反复调用方法计算，比较繁琐，虽然支持链式调用，但链式调用毕竟不如数学算式来得直观；而且查英文文档对我这个英语负四级水平的普通前端来说也是十八层地狱级别的折磨，于是……
 
 ## 功能简介：
-于是写了 **easy-calc** 这个方法。 **easy-calc** 基于 [big.js](https://www.npmjs.com/package/big.js) ，用法简单，支持正负整数和正负小数的加减乘除括号运算，支持公式变量替换，支持四舍五入，支持TS，支持IE11，没了（目前为止）。
+于是写了 **calc-easy** 这个方法。 **calc-easy** 基于 [big.js](https://www.npmjs.com/package/big.js) ，用法简单，支持正负整数和正负小数的加减乘除括号运算，支持公式变量替换，支持四舍五入，支持TS，支持IE11，没了（目前为止）。
 ```javascript
 /* 基本使用 */
 calc('0.1 + 0.2')
@@ -34,11 +34,11 @@ calc('0.1 + 0.2')
 ## 安装使用：
 **安装**
 ```shell
-npm install easy-calc --save
+npm install calc-easy --save
 ```
 **使用**
 ```javascript
-import calc from 'easy-calc';
+import calc from 'calc-easy';
 
 let result = calc('(1+2/(4-1))*3-2*2');
 console.log( "结果：" + result )
@@ -52,7 +52,7 @@ console.log( "结果：" + result )
 ```javascript
 //需求：用户买了3个商品A(12.99元)、2个商品B（3.8元），优惠券立减10元，然后享受平台活动总价打8折，求出当前总价并保留两位小数。
 //伪代码实现：
-import calc from 'easy-calc';
+import calc from 'calc-easy';
 
 let data = await query(API.getCarData);
 let total = calc('(goodA * 3 + goodB * 2 - coupon) * (discount / 10)', {
@@ -69,7 +69,7 @@ console.log( "总价：" + total + "元" )
 ```
 
 ## API:
-easy-calc只产出一个calc函数，函数有两个入参：
+calc-easy只产出一个calc函数，函数有两个入参：
 
 入参（按顺序）          | 类型      | 是否必填              | 默认值
 ----------        | -----              | ------            | ------------
