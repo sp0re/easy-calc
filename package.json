@@ -5,11 +5,12 @@
   "main": "dist/calc-easy.min.js",
   "scripts": {
     "watch": "rimraf lib && tsc --watch",
-    "build": "npm run build-lib && npm run build-dist && npm run copy-type && tsc",
+    "build": "npm run build-lib && npm run build-dist && npm run copy-type && npm run create-types",
     "build-lib": "rimraf lib && tsc && babel src --config-file babel.config.json --extensions .js,.jsx,.ts,.tsx --out-dir lib",
     "build-dist": "rimraf dist && webpack",
     "copy-type": "fe-mv ./lib/index.d.ts ./dist/calc-easy.min.d.ts",
-    "rise": "npm link"    
+    "create-types": "tsc --build tsconfigDeclarationOnly.json",
+    "rise": "npm link"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
+    "@types/node": "^16.3.1",
     "babel-loader": "^8.2.2",
     "babel-preset-minify": "^0.5.1",
     "fe-mv": "^1.0.3",

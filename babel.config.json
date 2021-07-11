@@ -23,7 +23,9 @@
                     ]
                 },
                 // "modules": false,
-                "modules": "auto",
+                // "modules": "auto",
+                "modules": "cjs",
+                // "modules": "umd",
                 "bugfixes": true
                 // "loose": true
                 // "useBuiltIns": "usage",
