@@ -23,8 +23,8 @@
                     ]
                 },
                 // "modules": false,
-                // "modules": "auto",
-                "modules": "cjs",
+                "modules": "auto",
+                // "modules": "cjs",
                 // "modules": "umd",
                 "bugfixes": true
                 // "loose": true

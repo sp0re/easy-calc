@@ -10,7 +10,6 @@
     "declarationDir": "./lib/",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true, 
-    // "emitDeclarationOnly": true   
   },
   "include": [
     "src/**/*.ts"
