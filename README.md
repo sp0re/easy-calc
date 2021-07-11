@@ -37,6 +37,8 @@ calc('0.1 + 0.2')
 npm install calc-easy --save
 ```
 **使用**
+
+ES module:
 ```javascript
 import calc from 'calc-easy';
 
@@ -44,11 +46,32 @@ let result = calc('(1+2/(4-1))*3-2*2');
 console.log( "结果：" + result )
 //结果：1
 ```
+CommonJS:
+```javascript
+const calc = require('calc-easy');
 
+let result = calc('(1+2/(4-1))*3-2*2');
+console.log( "结果：" + result )
+//结果：1
+```
 
-不过通常真实的**业务场景**可能是这样的：
+同时支持浏览器端和Node.js端使用。
 
-电商平台开发，读取接口拿到购物车数据，根据数据算出当前总价。
+如浏览器端的业务是没有现代化模块打包工具的古代项目，亦可从CDN引入使用（或者把 [本工程](https://github.com/sp0re/easy-calc) 拉下来自行构建出calc-easy.min.js文件，然后导入所需项目工程）：
+```html
+<script src='https://unpkg.com/calc-easy@0.0.2/dist/calc-easy.min.js'></script>
+```
+```javascript
+var result = calcEasy('(1+2/(4-1))*3-2*2');
+console.log( "结果：" + result )
+//结果：1
+```
+
+=============
+
+或许更真实的**业务场景**可能是这样的：
+
+开发一个电商平台，需要读取接口拿到购物车数据，然后根据数据算出当前总价。
 ```javascript
 //需求：用户买了3个商品A(12.99元)、2个商品B（3.8元），优惠券立减10元，然后享受平台活动总价打8折，求出当前总价并保留两位小数。
 //伪代码实现：
@@ -89,3 +112,8 @@ variable            | JSON对象， { [string]: number \| string }   | 配置数
 - 优化非ESM模块系统的场景的调用
 - 优化精简代码
 - 压缩产出，要小，再小，比小更小
+
+## 更新日志：
+- **20210711：**
+	* 调整项目配置，压缩代码（目前dist包是17.7kb
+	* 支持node环境和浏览器script标签引入的形式

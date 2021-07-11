@@ -1,6 +1,6 @@
 {
   "name": "calc-easy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "一个用法简单的、解决JavaScript基本运算与四舍五入时精度丢失问题的方法",
   "main": "dist/calc-easy.min.js",
   "scripts": {
