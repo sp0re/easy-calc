@@ -9,7 +9,8 @@
     "declaration": true,
     "declarationDir": "./lib/",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,    
+    "allowSyntheticDefaultImports": true, 
+    "emitDeclarationOnly": true   
   },
   "include": [
     "src/**/*.ts"

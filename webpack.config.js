@@ -5,10 +5,13 @@ module.exports = {
     mode: 'production',
     entry: './src/index.ts',
     output: {
-        library: 'easyCalc',
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'calc-easy.min.js',
+        library: 'calcEasy',
         libraryTarget: 'umd',
+        globalObject: 'this'
     },
-
+    target: 'node',
     module: {
         rules: [
             {
