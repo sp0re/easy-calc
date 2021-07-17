@@ -1,27 +1,17 @@
 {
+    // "targets": {
+    //     "node": "6.0.0",
+    //     "browsers": [
+    //         "> 1%",
+    //         "ie >= 11"    
+    //     ]
+    // },
+    "targets": "> 0.5%, not IE 11", //其实还是支持ie11的，因为并没有用什么ie11不支持的方法，所以配置就这么写，减少runtime打进代码里增加体积
     "presets": [
         "minify",
         [
             "@babel/env",
-            {
-                // "targets": {
-                //     "browsers": [
-                //         "> 1%",
-                //         "ie >= 11"
-                //     ]
-                // },
-                // "targets": "> 0.25%, not dead",
-                // "targets": "defaults",
-                // "targets": {
-                //     "node": "current"
-                // },
-                "targets": {
-                    "node": "6.0.0",
-                    "browsers": [
-                        "> 1%",
-                        "ie >= 11"
-                    ]
-                },
+            {                
                 // "modules": false,
                 "modules": "auto",
                 // "modules": "cjs",

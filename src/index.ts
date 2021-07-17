@@ -24,6 +24,7 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
     equa = equa.replace(Regs.space, '')
     //变量替换
     if (variable && Object.keys(variable).length > 0) {
+    // if (variable && JSON.stringify(variable) !== '{}') {
         for (let key in variable) {
             let value = variable[key];
             equa = equa.replace(new RegExp(key, 'g'), String(value))
