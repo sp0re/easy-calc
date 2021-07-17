@@ -1,5 +1,5 @@
 # calc-easy
-**一个用法简单的、解决JavaScript基本运算与四舍五入时精度丢失问题的方法**
+**一个符合普通人常识的、增强解决JavaScript基本运算与四舍五入精度丢失问题时的使用体验的库**
 
 
 ## 开发背景：
@@ -59,7 +59,7 @@ console.log( "结果：" + result )
 
 如浏览器端的业务是没有现代化模块打包工具的古代项目，亦可从CDN引入使用（或者把 [本工程](https://github.com/sp0re/easy-calc) 拉下来自行构建出calc-easy.min.js文件，然后导入所需项目工程）：
 ```html
-<script src='https://unpkg.com/calc-easy@0.0.2/dist/calc-easy.min.js'></script>
+<script src='https://unpkg.com/calc-easy@0.0.4/dist/calc-easy.min.js'></script>
 ```
 ```javascript
 var result = calcEasy('(1+2/(4-1))*3-2*2');
@@ -109,11 +109,11 @@ variable            | JSON对象， { [string]: number \| string }   | 配置数
 ## TODO:
 - 支持百分号运算
 - 增加校验，处理各种边界问题，处理错误异常
-- 优化精简代码
-- 压缩产出，要小，再小，比小更小
 - 命令行调用
 
 ## 更新日志：
 - **20210711：**
-	* 调整项目配置，压缩代码（目前dist包是17.7kb，CDN版gzip压缩后是7kb
+	* 调整项目配置，压缩代码（目前min包是17.7kb，CDN版gzip压缩后是7kb
 	* 支持node环境和浏览器script标签引入的形式
+- **20210717：**
+	* 优化配置，优化代码，减少产出体积（目前min包大小约是9.16kb，gzip压缩后约3.76kb

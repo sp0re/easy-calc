@@ -1,7 +1,7 @@
 {
   "name": "calc-easy",
-  "version": "0.0.3",
-  "description": "一个用法简单的、解决JavaScript基本运算与四舍五入时精度丢失问题的方法",
+  "version": "0.0.4",
+  "description": "一个符合普通人常识的、增强解决JavaScript基本运算与四舍五入精度丢失问题时的使用体验的库",
   "main": "dist/calc-easy.min.js",
   "scripts": {
     "watch": "npm run clean-lib && tsc --watch",
