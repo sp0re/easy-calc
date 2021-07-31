@@ -121,8 +121,9 @@ toFixed            | number      | 四舍五入到多少位小数，不配置则
 variable            | JSON对象， { [string]: number \| string }   | 配置数据，用于算式中的变量替换    | {}
 
 ## 当前版本包大小：
-- **min：**9.3kb
-- **gzip：**3.83kb
+**min：**9.3kb  
+**gzip：**3.83kb
+
 
 ## TODO:
 - 增加校验，处理各种边界问题，处理错误异常
