@@ -1,6 +1,6 @@
 {
   "name": "calc-easy",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "一个符合普通人常识的、增强解决JavaScript基本运算与四舍五入精度丢失问题时的使用体验的库",
   "main": "dist/calc-easy.min.js",
   "scripts": {
@@ -64,7 +64,6 @@
     "core-js": "^3.15.2"
   },
   "files": [
-    "dist",
-    "lib"
+    "dist"
   ]
 }

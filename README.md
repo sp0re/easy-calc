@@ -1,5 +1,5 @@
 # calc-easy
-**一个符合普通人常识的、增强解决JavaScript基本运算与四舍五入精度丢失问题时的使用体验的库**
+**一个简单好用的、精度不丢失的基本运算库**
 
 
 ## 开发背景：
@@ -19,16 +19,30 @@
 ```
 啊啊啊啊啊啊啊啊，我只想安安静静地写点普通业务躺平混工资，上天为什么要找这些数学运算来折磨我？
 
-直到我发现了 [decimal.js](https://www.npmjs.com/package/decimal.js) 和 [big.js](https://www.npmjs.com/package/big.js) ，这两个库是同一个作者开发的，他（们）真是太棒了，开发出那么优秀的库，几乎解决了前端数学运算会遇到的所有问题。
+直到我发现了 [decimal.js](https://www.npmjs.com/package/decimal.js) ，这是个很棒的库，几乎解决了前端数学运算会遇到的所有问题。
 
-不过，大多数场景里我只是需要加减乘除和四舍五入这些基本运算，用不到 [decimal.js](https://www.npmjs.com/package/decimal.js) 里那么多方法；算式比较长时， [decimal.js](https://www.npmjs.com/package/decimal.js) 需要反复调用方法计算，比较繁琐，虽然支持链式调用，但链式调用毕竟不如数学算式来得直观；而且查英文文档对我这个英语负四级水平的普通前端来说也是十八层地狱级别的折磨，于是……
+**不过：**
+- 大多数场景里我只需使用加、减、乘、除、百分号、括号和四舍五入这些基本运算，用不到 [decimal.js](https://www.npmjs.com/package/decimal.js) 里那么多方法；
+- 算式比较长时， [decimal.js](https://www.npmjs.com/package/decimal.js) 需要反复调用函数进行计算，比较繁琐；
+- 有些库虽然支持链式调用，但链式调用毕竟不如数学算式来得直观；
+- 而且每次使用都去查英文文档，对我这个英语负四级水平的普通前端来说也是十八层地狱级别的折磨，于是有了**calc-easy**的构想。
+
+```javascript
+//伪代码演示对于数学运算来说并不太直观的链式调用：
+//1+2+3+4*5-6：
+new num(1).add(2).add(3).add(new num(4).plus(5)).sub(6)
+//而我认为理想的使用方法：
+calc('1+2+3+4*5-6')
+```
 
 ## 功能简介：
-于是写了 **calc-easy** 这个方法。 **calc-easy** 基于 [big.js](https://www.npmjs.com/package/big.js) ，用法简单，支持正负整数和正负小数的加减乘除括号运算，支持公式变量替换，支持四舍五入，支持TS，支持IE11，没了（目前为止）。
+**calc-easy** 基于 [big.js](https://www.npmjs.com/package/big.js) （可以勉强理解为是 [decimal.js](https://www.npmjs.com/package/decimal.js) 的小兄弟，再次感谢），用法简单直观，支持正负整数和正负小数的加、减、乘、除、百分号和括号运算，支持公式变量替换，支持四舍五入，支持TS，支持IE11。
 ```javascript
 /* 基本使用 */
 calc('0.1 + 0.2')
 //结果：0.3  (就很棒
+calc('1+2+3+4*5-6')
+//结果：20
 ```
 
 ## 安装使用：
@@ -50,16 +64,16 @@ CommonJS:
 ```javascript
 const calc = require('calc-easy');
 
-let result = calc('(1+2/(4-1))*3-2*2');
+let result = calc('(100% + 2/(4-1))*3-2*2');
 console.log( "结果：" + result )
 //结果：1
 ```
 
 同时支持浏览器端和Node.js端使用。
 
-如浏览器端的业务是没有现代化模块打包工具的古代项目，亦可从CDN引入使用（或者把 [本工程](https://github.com/sp0re/easy-calc) 拉下来自行构建出calc-easy.min.js文件，然后导入所需项目工程）：
+或者您也可以选择用 **script 标签** 引入：
 ```html
-<script src='https://unpkg.com/calc-easy@0.0.4/dist/calc-easy.min.js'></script>
+<script src='https://unpkg.com/calc-easy@0.0.5/dist/calc-easy.min.js'></script>
 ```
 ```javascript
 var result = calcEasy('(1+2/(4-1))*3-2*2');
@@ -69,7 +83,7 @@ console.log( "结果：" + result )
 
 =============
 
-或许更真实的**业务场景**可能是这样的：
+**业务场景举例：**
 
 开发一个电商平台，需要读取接口拿到购物车数据，然后根据数据算出当前总价。
 ```javascript
@@ -78,12 +92,12 @@ console.log( "结果：" + result )
 import calc from 'calc-easy';
 
 let data = await query(API.getCarData);
-let total = calc('(goodA * 3 + goodB * 2 - coupon) * (discount / 10)', {
+let total = calc('(A * 3 + B * 2 - C) * (D / 10)', {
 	variable: {
-		goodA: data.goodA,  //12.99
-		goodB: data.goodB,  //3.8
-		coupon: data.coupon,  //10
-		discount: data.discount， //8
+		A: data.goodA,  //12.99
+		B: data.goodB,  //3.8
+		C: data.coupon,  //10
+		D: data.discount， //8
 	},
 	toFixed: 2
 })
@@ -92,11 +106,11 @@ console.log( "总价：" + total + "元" )
 ```
 
 ## API:
-calc-easy只产出一个calc函数，函数有两个入参：
+calc-easy目前只产出一个calc函数，函数有两个入参：
 
 入参（按顺序）          | 类型      | 是否必填              | 默认值
 ----------        | -----              | ------            | ------------
-算式，可以是单纯数学算式，也可以带变量，带变量时需要在下面配置项配置variable；支持加减乘除括号基本运算            | string       | 是   |  无
+算式，可以是单纯数学算式，也可以带变量，带变量时需要在下面配置项配置variable；支持加、减、乘、除、百分号和括号的基本运算            | string       | 是   |  无
 配置项，具体见下            | JSON对象    |否       | {}
 
 配置项：
@@ -106,17 +120,21 @@ calc-easy只产出一个calc函数，函数有两个入参：
 toFixed            | number      | 四舍五入到多少位小数，不配置则不进行四舍五入运算      |  无
 variable            | JSON对象， { [string]: number \| string }   | 配置数据，用于算式中的变量替换    | {}
 
-## 包大小：
-
+## 当前版本包大小：
+- **min：**9.3kb
+- **gzip：**3.83kb
 
 ## TODO:
-- 支持百分号运算
 - 增加校验，处理各种边界问题，处理错误异常
 - 命令行调用
+- 增加独立的config函数
 
 ## 更新日志：
-- **20210711：**
+- **20210711（version 0.0.2）：**
 	* 调整项目配置，压缩代码（目前min包是17.7kb，CDN版gzip压缩后是7kb
 	* 支持node环境和浏览器script标签引入的形式
-- **20210717：**
+- **20210717（version 0.0.4）：**
 	* 优化配置，优化代码，减少产出体积（目前min包大小约是9.16kb，gzip压缩后约3.76kb
+- **20210731（version 0.0.5）：**
+	* 支持百分号运算
+	* 优化文档
