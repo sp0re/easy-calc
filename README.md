@@ -106,6 +106,9 @@ calc-easy只产出一个calc函数，函数有两个入参：
 toFixed            | number      | 四舍五入到多少位小数，不配置则不进行四舍五入运算      |  无
 variable            | JSON对象， { [string]: number \| string }   | 配置数据，用于算式中的变量替换    | {}
 
+## 包大小：
+
+
 ## TODO:
 - 支持百分号运算
 - 增加校验，处理各种边界问题，处理错误异常

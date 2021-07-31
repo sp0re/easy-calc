@@ -1,4 +1,5 @@
 import Regs from './regs'
+import percent from './percent'
 import div from './div'
 import mul from './mul'
 import addAndSub from './add_sub'
@@ -31,7 +32,10 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
         }
     }
 
-    const doCalc: any = (equa: string) => {
+    //把百分号转成除法        
+    equa = percent(equa)    
+
+    const doCalc: any = (equa: string) => {            
         //先处理除法
         equa = div(equa)
         //计算乘法
