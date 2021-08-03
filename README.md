@@ -73,7 +73,7 @@ console.log( "结果：" + result )
 
 或者您也可以选择用 **script 标签** 引入：
 ```html
-<script src='https://unpkg.com/calc-easy@0.0.5/dist/calc-easy.min.js'></script>
+<script src='https://unpkg.com/calc-easy@0.0.6/dist/calc-easy.min.js'></script>
 ```
 ```javascript
 var result = calcEasy('(1+2/(4-1))*3-2*2');
@@ -139,3 +139,5 @@ variable            | JSON对象， { [string]: number \| string }   | 配置数
 - **20210731（version 0.0.5）：**
 	* 支持百分号运算
 	* 优化文档
+- **20210803（version 0.0.6）：**
+	* 修改打包配置，修复ie11报错

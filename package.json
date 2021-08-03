@@ -1,7 +1,7 @@
 {
   "name": "calc-easy",
-  "version": "0.0.5",
-  "description": "一个符合普通人常识的、增强解决JavaScript基本运算与四舍五入精度丢失问题时的使用体验的库",
+  "version": "0.0.6",
+  "description": "一个简单好用的、精度不丢失的基本运算库",
   "main": "dist/calc-easy.min.js",
   "scripts": {
     "watch": "npm run clean-lib && tsc --watch",
@@ -34,7 +34,17 @@
     "minus",
     "mul",
     "divide",
-    "number"
+    "number",
+    "数学",
+    "运算",
+    "计算",
+    "算数",
+    "算式",
+    "四则运算",
+    "四舍五入",
+    "精度",
+    "精度丢失",
+    "浮点数"
   ],
   "author": "sp0re",
   "license": "MIT",
