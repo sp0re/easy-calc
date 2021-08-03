@@ -8,7 +8,7 @@
     },
     // "targets": "> 0.5%, not IE 11", 
     "presets": [
-        "minify",
+        // "minify",
         [
             "@babel/env",
             {                
@@ -28,7 +28,7 @@
         "@babel/preset-typescript"
     ]
   //   "plugins": [ //其实还是支持ie11的，因为并没有用什么ie11不支持的方法，所以配置就这么写，减少runtime打进代码里增加体积
-		// "@babel/plugin-transform-arrow-functions",
+		// // "@babel/plugin-transform-arrow-functions",
   //       [
   //           "@babel/plugin-transform-runtime",
   //           {
