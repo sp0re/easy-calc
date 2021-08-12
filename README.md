@@ -23,8 +23,8 @@
 
 **不过：**
 - 大多数场景里我只需使用加、减、乘、除、百分号、括号和四舍五入这些基本运算，用不到 [decimal.js](https://www.npmjs.com/package/decimal.js) 里那么多方法；
-- 算式比较长时， [decimal.js](https://www.npmjs.com/package/decimal.js) 需要反复调用函数进行计算，比较繁琐；
-- 有些库虽然支持链式调用，但链式调用毕竟不如数学算式来得直观；
+- 表达式比较长时， [decimal.js](https://www.npmjs.com/package/decimal.js) 需要反复调用函数进行计算，比较繁琐；
+- 有些库虽然支持链式调用，但链式调用毕竟不如数学表达式来得直观；
 - 而且每次使用都去查英文文档，对我这个英语负四级水平的普通前端来说也是十八层地狱级别的折磨，于是有了**calc-easy**的构想。
 
 ```javascript
@@ -36,7 +36,7 @@ calc('1+2+3+4*5-6')
 ```
 
 ## 功能简介：
-**calc-easy** 基于 [big.js](https://www.npmjs.com/package/big.js) （可以勉强理解为是 [decimal.js](https://www.npmjs.com/package/decimal.js) 的小兄弟，再次感谢），用法简单直观，支持正负整数和正负小数的加、减、乘、除、百分号和括号运算，支持公式变量替换，支持四舍五入，支持TS，支持IE11。
+**calc-easy** 基于 [big.js](https://www.npmjs.com/package/big.js) （可以勉强理解为是 [decimal.js](https://www.npmjs.com/package/decimal.js) 的小兄弟，再次感谢），用法简单直观，支持正负整数和正负小数的加、减、乘、除、百分号和括号运算，支持表达式变量替换，支持四舍五入，支持TS，支持IE11。
 ```javascript
 /* 基本使用 */
 calc('0.1 + 0.2')
@@ -110,7 +110,7 @@ calc-easy目前只产出一个calc函数，函数有两个入参：
 
 入参（按顺序）          | 类型      | 是否必填              | 默认值
 ----------        | -----              | ------            | ------------
-算式，可以是单纯数学算式，也可以带变量，带变量时需要在下面配置项配置variable；支持加、减、乘、除、百分号和括号的基本运算            | string       | 是   |  无
+表达式，可以是单纯数字表达式，也可以带变量，带变量时需要在下面配置项配置variable；支持加、减、乘、除、百分号和括号的基本运算            | string       | 是   |  无
 配置项，具体见下            | JSON对象    |否       | {}
 
 配置项：
@@ -118,11 +118,11 @@ calc-easy目前只产出一个calc函数，函数有两个入参：
 参数          | 类型       | 简介    | 默认值
 ----------        | -----      | -----              | ------------
 toFixed            | number      | 四舍五入到多少位小数，不配置则不进行四舍五入运算      |  无
-variable            | JSON对象， { [string]: number \| string }   | 配置数据，用于算式中的变量替换    | {}
+variable            | JSON对象， { [string]: number \| string }   | 配置数据，用于表达式中的变量替换    | {}
 
 ## 当前版本包大小：
-**min：**9.47kb  
-**gzip：**3.82kb
+min：9.47kb  
+gzip：3.82kb
 
 
 ## TODO:
