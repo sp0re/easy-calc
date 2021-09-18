@@ -1,7 +1,7 @@
 {
   "name": "calc-easy",
-  "version": "0.0.6",
-  "description": "一个简单好用的、精度不丢失的基本运算库",
+  "version": "1.0.0",
+  "description": "一个基于big.js的、简单好用的、精度不丢失的基本运算库",
   "main": "dist/calc-easy.min.js",
   "scripts": {
     "watch": "npm run clean-lib && tsc --watch",
@@ -35,11 +35,12 @@
     "mul",
     "divide",
     "number",
+    "math",
     "数学",
     "运算",
     "计算",
     "算数",
-    "算式",
+    "表达式",
     "四则运算",
     "四舍五入",
     "精度",
@@ -54,12 +55,16 @@
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
+    "@babel/runtime": "^7.14.6",
+    "@babel/runtime-corejs3": "^7.14.7",
     "@types/node": "^16.3.1",
     "babel-loader": "^8.2.2",
     "babel-preset-minify": "^0.5.1",
     "compression-webpack-plugin": "^5.0.2",
+    "core-js": "^3.15.2",
     "fe-mv": "^1.0.3",
     "rimraf": "^3.0.2",
+    "set-value": "^4.0.1",
     "ts-loader": "^8.1.0",
     "tslib": "^2.3.0",
     "typescript": "^4.3.4",
@@ -67,11 +72,8 @@
     "webpack-cli": "^4.7.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.14.6",
-    "@babel/runtime-corejs3": "^7.14.7",
     "@types/big.js": "^6.1.1",
-    "big.js": "^6.1.1",
-    "core-js": "^3.15.2"
+    "big.js": "^6.1.1"
   },
   "files": [
     "dist"
