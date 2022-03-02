@@ -74,12 +74,8 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
         )
     }
 
-    return String(
-        Big(
-            equa
-        )
-        .toNumber()
-    )
+    
+    return equa
 }
 
 export default calc
