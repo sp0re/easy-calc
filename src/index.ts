@@ -74,8 +74,16 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
         )
     }
 
-    
-    return equa
+    //这样写能解决2/3*3会不等于2的问题，但是转成了number就会不支持大数
+    return String(
+        Big(
+            equa
+        )
+        .toNumber()
+    )
+
+    // return equa  
+    // return String(Big(equa).toPrecision())
 }
 
 export default calc

@@ -13,6 +13,12 @@ const symbol: symbolFunc = (equation: string) => {
         equa = equa.replace(Regs.addadd, '+');
         equa = equa.replace(Regs.subadd, '-');                
         return symbol(equa)
+    }else if(equa.match(Regs.positive)){
+        return symbol(
+            equa.replace(Regs.positive, (match, index, origin)=>{
+                return match.slice(0, 1) + match.slice(2);
+            })
+        )        
     }else{
         return equa
     }
