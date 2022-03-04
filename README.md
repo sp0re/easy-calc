@@ -9,6 +9,8 @@
 //结果：0.30000000000000004
 0.1 * 0.2
 //结果：0.020000000000000004
+9007199254740992 + 1
+//结果：9007199254740992
 ```
 或者：
 ```javascript
@@ -36,13 +38,15 @@ calc('1+2+3+4*5-6')
 ```
 
 ## 功能简介：
-**calc-easy** 基于 [big.js](https://www.npmjs.com/package/big.js) （可以勉强理解为是 [decimal.js](https://www.npmjs.com/package/decimal.js) 的小兄弟，再次感谢），用法简单直观，支持正负整数和正负小数的加、减、乘、除、百分号和括号运算，支持表达式变量替换，支持四舍五入，支持TS，支持IE11。
+**calc-easy** 基于 [big.js](https://www.npmjs.com/package/big.js) （感谢），用法简单直观，支持正负整数和正负小数的加、减、乘、除、百分号和括号运算，支持表达式变量替换，支持四舍五入，支持TS，支持IE11。
 ```javascript
 /* 基本使用 */
 calc('0.1 + 0.2')
-//结果：0.3  (就很棒
+//结果：'0.3'  (就很棒
 calc('1+2+3+4*5-6')
-//结果：20
+//结果：'20'
+calc('9007199254740992+1')
+//结果：'9007199254740993'
 ```
 
 ## 安装使用：
@@ -58,7 +62,7 @@ import calc from 'calc-easy';
 
 let result = calc('(1+2/(4-1))*3-2*2');
 console.log( "结果：" + result )
-//结果：1
+//'结果：1'
 ```
 CommonJS:
 ```javascript
@@ -66,7 +70,7 @@ const calc = require('calc-easy');
 
 let result = calc('(100% + 2/(4-1))*3-2*2');
 console.log( "结果：" + result )
-//结果：1
+//'结果：1'
 ```
 
 同时支持浏览器端和Node.js端使用。
@@ -78,7 +82,7 @@ console.log( "结果：" + result )
 ```javascript
 var result = calcEasy('(1+2/(4-1))*3-2*2');
 console.log( "结果：" + result )
-//结果：1
+//'结果：1'
 ```
 
 =============
@@ -102,7 +106,7 @@ let total = calc('(A * 3 + B * 2 - C) * (D / 10)', {
 	toFixed: 2
 })
 console.log( "总价：" + total + "元" )
-//总价：29.26元
+//'总价：29.26元'
 ```
 
 ## API:
@@ -121,14 +125,15 @@ toFixed            | number      | 四舍五入到多少位小数，不配置则
 variable            | JSON对象， { [string]: number \| string }   | 配置数据，用于表达式中的变量替换    | {}
 
 ## 当前版本包大小：
-min：9.47kb  
-gzip：3.82kb
+min：9.85kb  
+gzip：3.95kb
 
 
 ## TODO:
 - 增加校验，处理各种边界问题，处理错误异常
 - 命令行调用
 - 增加独立的config函数
+- 打包自动删除log
 
 ## 更新日志：
 - **20210711（version 0.0.2）：**
@@ -144,3 +149,7 @@ gzip：3.82kb
 - **20210918（version 0.0.7）：**
 	* 修复github安全报警
 	* 优化readme
+- **20220304（version 0.0.8）：**
+	* 支持大于9007199254740992的大数
+	* 修复正号（1*+2）导致的报错
+	* 引入jest单元测试

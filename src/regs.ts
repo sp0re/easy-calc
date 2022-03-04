@@ -14,6 +14,7 @@ const Regs: RegsType = {
     addSymbol: /^\+/,
     brackets: /\((\+|\-|\*|\/|\%|\w|\.)+\)/g,
     percent: /(\w|\.)+\%/g,
+    positive: /\D\+\d+\.?\d*/g
 }
 
 export default Regs

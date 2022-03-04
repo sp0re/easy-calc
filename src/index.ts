@@ -19,6 +19,8 @@ export interface calcFunc {
     ): string
 }
 
+const NUMBER_MAX:number = 9007199254740992;
+
 const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationConfig = {}) => {
     let equa = equation;
     //清除空格
@@ -74,12 +76,24 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
         )
     }
 
-    return String(
-        Big(
-            equa
-        )
-        .toNumber()
-    )
+    let handleResult:any = (equa: string) => {
+        let index:number = Math.floor(Math.abs(Big(equa).div(Big(NUMBER_MAX)).toNumber())); //向下取整，得到NUMBER_MAX出现的倍数
+        if(index === 0) { //没超过大数临界值，这样写能解决2/3*3会不等于2的问题
+            return String(
+                Big(equa).toNumber()
+            )
+        }else{  //超过大数临界值，先把临界值的倍数剔除，按上面的方法处理余下部分保证精度，然后把成倍的大数加回去
+            let _symbol:string = Big(equa).lt(0) ? '-' : '';
+            let part:string = Big(equa).abs().minus(Big(NUMBER_MAX).times(index)).toPrecision();
+            let result:string = Big(NUMBER_MAX).times(index).plus(
+                Big(String(
+                    Big(part).toNumber()
+                ))).toPrecision()
+            return _symbol + result
+        }
+    }
+
+    return handleResult(equa)
 }
 
 export default calc

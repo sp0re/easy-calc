@@ -14,7 +14,8 @@
     "clean": "npm run clean-lib && npm run clean-dist",
     "clean-lib": "rimraf lib",
     "clean-dist": "rimraf dist",
-    "rise": "npm link"
+    "rise": "npm link",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -63,6 +64,7 @@
     "compression-webpack-plugin": "^5.0.2",
     "core-js": "^3.15.2",
     "fe-mv": "^1.0.3",
+    "jest": "^27.5.1",
     "rimraf": "^3.0.2",
     "set-value": "^4.0.1",
     "ts-loader": "^8.1.0",
