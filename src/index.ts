@@ -5,23 +5,40 @@ import mul from './mul'
 import addAndSub from './add_sub'
 import Big from 'big.js';
 
-export interface equationConfig {
-    toFixed?: number,
-    variable?: {
-        [variableName: string]: number | string
-    }
+export type toFixed = number
+export type variable = {
+    [variableName: string]: number | string
 }
+
+export interface equationConfig1 {
+    toFixed?: toFixed,
+    variable?: variable
+}
+
+export type equationConfig2 = [
+    variable | null,
+    toFixed | void
+] | [
+    variable | null
+]
+
+export type config = equationConfig1 | equationConfig2
 
 export interface calcFunc {
     (
         equation: string,
-        config?: equationConfig
+        config?: config
     ): string
+}
+
+export interface createFunc {
+    (config: config): calcFunc
 }
 
 const NUMBER_MAX:number = 9007199254740992;
 
-const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationConfig = {}) => {
+const calc: calcFunc = (equation: string, config: config) => {
+    let { variable, toFixed } = transConfig(config);
     let equa = equation;
     //清除空格
     equa = equa.replace(Regs.space, '')
@@ -96,5 +113,33 @@ const calc: calcFunc = (equation: string, { toFixed, variable = {} }: equationCo
     return handleResult(equa)
 }
 
+const createCalc:createFunc = (config:config) => {
+    let O = {
+        config: config,
+        calc: (equation: string, config:config)=>{
+            return calc(equation, {
+                ...transConfig(O.config),
+                ...transConfig(config)
+            })
+        }
+    }
+    return O.calc
+}
+
+function transConfig(config:config) : equationConfig1  {
+    if(Array.isArray(config)) {
+        return {
+            ...( config[0] ? { variable: config[0] } : {}),
+            ...( config[1] || config[1] === 0 ? { toFixed: config[1] } : {})
+        }
+    }else if( config && (config.variable || config.toFixed || config.toFixed === 0) ){
+        return {
+            ...( config.variable && Object.keys(config.variable).length > 0 ? { variable: config.variable } : {}),
+            ...( config.toFixed || config.toFixed === 0 ? { toFixed: config.toFixed } : {})
+        }
+    }
+    return {}
+}
+
 export default calc
-export {calc}
+export {createCalc}
