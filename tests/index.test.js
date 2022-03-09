@@ -198,6 +198,46 @@ test('(100.5678*3+-200*2-10/100)*(8/10/100)', ()=>{
     expect(calc('(100.5678*3+-200*2-10/100)*(8/10/100)')).toBe('-0.7871728')
 })
 
+test('空config{}', ()=>{
+    expect(calc('0.1*+0.2', {})).toBe('0.02')
+})
+
+test('空variable{}', ()=>{
+    expect(calc('0.1*+0.2', {variable:{}})).toBe('0.02')
+})
+
+test('空toFixed{}', ()=>{
+    expect(calc('0.1*+0.2', {toFixed:null})).toBe('0.02')
+})
+
+test('完整{}', ()=>{
+    expect(calc('0.1*a+0.2/b*(c-3)', {toFixed:2, variable: {a: 1, b: '2', c:'3'}})).toBe('0.10')
+})
+
+test('es6字符串', ()=>{
+    expect(calc(`0.1*${1}+0.2/${'2'}*(${3}-3)`)).toBe('0.1')
+})
+
+test('空config[]', ()=>{
+    expect(calc('0.1*+0.2', [])).toBe('0.02')
+})
+
+test('空variable[]1', ()=>{
+    expect(calc('0.1*+0.2', [null, 4])).toBe('0.0200')
+})
+
+test('空variable[]2', ()=>{
+    expect(calc('0.1*+0.2', [{}, 4])).toBe('0.0200')
+})
+
+test('空toFixed[]', ()=>{
+    expect(calc('0.1*a+0.2', [{a: 0.01}])).toBe('0.201')
+})
+
+test('完整[]', ()=>{
+    expect(calc('0.1*a+0.2/b*(c-3)', [{a: 1, b: '2', c:'3'}, 2])).toBe('0.10')
+})
+
 // test('xxx', ()=>{
 //     expect(calc('xxx')).toBe('xxx')
 // })
