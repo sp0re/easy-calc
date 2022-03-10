@@ -1,6 +1,6 @@
 {
   "name": "calc-easy",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "一个专注于易用性的、精度准确的基本运算库",
   "main": "dist/calc-easy.min.js",
   "scripts": {

@@ -52,7 +52,7 @@ const createCalc = calc.createCalc;
 ```
 CDN:
 ```html
-<script src='https://unpkg.com/calc-easy@1.0.1/dist/calc-easy.min.js'></script>
+<script src='https://unpkg.com/calc-easy@1.0.0/dist/calc-easy.min.js'></script>
 ```
 ```javascript
 var calc = calcEasy;
@@ -160,7 +160,7 @@ config支持两种格式：{variable?, toFixed?} 和 [variable?, toFixed?]
 	</tr>
 </table>
 
-具体类型参见 [calc-easy.min.d.ts](https://unpkg.com/calc-easy@1.0.1/dist/calc-easy.min.d.ts) 
+具体类型参见 [calc-easy.min.d.ts](https://unpkg.com/calc-easy@1.0.0/dist/calc-easy.min.d.ts) 
 
 ### 例子
 ```javascript
@@ -280,7 +280,7 @@ gzip：4.28KB
 	* 支持大于9007199254740992的大数
 	* 修复正号（1*+2）导致的报错
 	* 引入jest单元测试
-- **20220310（version 1.0.1）：**
+- **20220310（version 1.0.0）：**
 	* config支持json和数组两种格式
 	* 加入createCalc方法
 	* 重写文档
