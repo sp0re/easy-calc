@@ -61,6 +61,8 @@
     "@types/node": "^16.3.1",
     "babel-loader": "^8.2.2",
     "babel-preset-minify": "^0.5.1",
+    "browserslist": "^4.20.0",
+    "caniuse-lite": "^1.0.30001314",
     "compression-webpack-plugin": "^5.0.2",
     "core-js": "^3.15.2",
     "fe-mv": "^1.0.3",
