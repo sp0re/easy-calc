@@ -1,5 +1,8 @@
-const index = require("../src/index")
-const createCalc = index.createCalc
+// const index = require("../src/index")
+// const createCalc = index.createCalc
+
+const calc = require('../dist/calc-easy.min.js');
+const createCalc = calc.createCalc;
 
 
 test('空config{}', ()=>{
@@ -67,6 +70,16 @@ test('variable[]覆盖variable[]', ()=>{
 test('variable[]覆盖variable{}', ()=>{
 	let calc = createCalc({variable: {a: -1}});
     expect(calc('-a/3*b', [{a: -2, b: 6}])).toBe('4')
+})
+
+test('variable[]空覆盖variable{}', ()=>{
+	let calc = createCalc({variable: {a: -1}});
+    expect(calc('-a/2', [{}])).toBe('0.5')
+})
+
+test('variable{}空覆盖variable{}', ()=>{
+	let calc = createCalc({variable: {a: -1}});
+    expect(calc('-a/2', {variable: {}})).toBe('0.5')
 })
 
 test('toFixed{}覆盖toFixed{}', ()=>{

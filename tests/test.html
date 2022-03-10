@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>测试浏览器</title>
+	</head>
+	<body>
+		<div id='test'>TEST</div>
+		<script src="../dist/calc-easy.min.js"></script>
+		<script defer>
+			// var log = console.log.bind(this);
+			var calc = calcEasy;
+			var createCalc = calcEasy.createCalc;
+			var toFixed = createCalc({toFixed: 6});
+			// log(
+			// 	calc('0.1+0.2'),
+			// 	toFixed('10')
+			// );
+			document.getElementById('test').innerHTML = 
+				document.getElementById('test').innerHTML + '<br/>' +				
+				toFixed('1/3') + '<br/>' +	
+				calc('0.1+0.2');
+			
+		</script>
+	</body>
+</html>

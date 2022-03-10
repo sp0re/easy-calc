@@ -129,7 +129,7 @@ const createCalc:createFunc = (config:config) => {
 function transConfig(config:config) : equationConfig1  {
     if(Array.isArray(config)) {
         return {
-            ...( config[0] ? { variable: config[0] } : {}),
+            ...( config[0] && Object.keys(config[0]).length > 0 ? { variable: config[0] } : {}),
             ...( config[1] || config[1] === 0 ? { toFixed: config[1] } : {})
         }
     }else if( config && (config.variable || config.toFixed || config.toFixed === 0) ){

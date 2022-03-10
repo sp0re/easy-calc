@@ -1,7 +1,7 @@
 {
   "name": "calc-easy",
-  "version": "1.0.0",
-  "description": "一个基于big.js的、简单好用的、精度不丢失的基本运算库",
+  "version": "1.0.1",
+  "description": "一个专注于易用性的、精度准确的基本运算库",
   "main": "dist/calc-easy.min.js",
   "scripts": {
     "watch": "npm run clean-lib && tsc --watch",
@@ -41,6 +41,7 @@
     "运算",
     "计算",
     "算数",
+	"大数",
     "表达式",
     "四则运算",
     "四舍五入",
