@@ -1,6 +1,6 @@
 {
   "name": "calc-easy",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "一个专注于易用性的、精度准确的基本运算库",
   "main": "dist/calc-easy.min.js",
   "scripts": {
@@ -41,7 +41,7 @@
     "运算",
     "计算",
     "算数",
-	"大数",
+    "大数",
     "表达式",
     "四则运算",
     "四舍五入",

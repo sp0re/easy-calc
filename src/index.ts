@@ -47,10 +47,10 @@ const calc: calcFunc = (equation: string, config: config) => {
     // if (variable && JSON.stringify(variable) !== '{}') {
         for (let key in variable) {
             let value = variable[key];
-            equa = equa.replace(new RegExp(key, 'g'), String(value))
+            let reg = "\\b" + String(key) + "\\b";
+            equa = equa.replace(new RegExp(reg, 'g'), String(value))
         }
     }
-
     //把百分号转成除法        
     equa = percent(equa)    
 

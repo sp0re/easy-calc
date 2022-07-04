@@ -241,6 +241,14 @@ test('完整[]', ()=>{
     expect(calc('0.1*a+0.2/b*(c-3)', [{a: 1, b: '2', c:'3'}, 2])).toBe('0.10')
 })
 
+test('验证变量替换bug1', ()=>{
+    expect(calc('good+good2', [{good: -1, good2: 2}])).toBe('1')
+})
+
+test('验证变量替换bug2', ()=>{
+    expect(calc('goodgood+good', [{good: -1, goodgood: 6}])).toBe('5')
+})
+
 // test('xxx', ()=>{
 //     expect(calc('xxx')).toBe('xxx')
 // })

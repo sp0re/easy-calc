@@ -52,7 +52,7 @@ const createCalc = calc.createCalc;
 ```
 CDN:
 ```html
-<script src='https://unpkg.com/calc-easy@1.0.0/dist/calc-easy.min.js'></script>
+<script src='https://unpkg.com/calc-easy@1.1.1/dist/calc-easy.min.js'></script>
 ```
 ```javascript
 var calc = calcEasy;
@@ -160,7 +160,7 @@ config支持两种格式：{variable?, toFixed?} 和 [variable?, toFixed?]
 	</tr>
 </table>
 
-具体类型参见 [calc-easy.min.d.ts](https://unpkg.com/calc-easy@1.0.0/dist/calc-easy.min.d.ts) 
+具体类型参见 [calc-easy.min.d.ts](https://unpkg.com/calc-easy@1.1.1/dist/calc-easy.min.d.ts) 
 
 ### 例子
 ```javascript
@@ -260,7 +260,7 @@ MIT
 
 ### 当前版本包大小
 min：10.9KB  
-gzip：4.28KB
+gzip：4.29KB
 
 ### 更新日志
 - **20210711（version 0.0.2）：**
@@ -285,3 +285,5 @@ gzip：4.28KB
 	* 加入createCalc方法
 	* 重写文档
 	* 完善测试
+- **20220704（version 1.1.1）：**
+	* 优化变量替换的正则，修复[问题](https://github.com/sp0re/easy-calc/issues/3)
